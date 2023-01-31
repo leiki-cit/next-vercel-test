@@ -1,6 +1,7 @@
 import Head from "next/head"
 import { useEffect, useState} from "react"
 import NextLink from "../src/components/Link"
+import FAQScreen from "../src/screens/FaqScreen"
 
 //usado para fazer sites estáticos. O conteúdo trabalhado nunca será alterado mesmo que o conteúdo da api mude,
 //será necessário fazer outro build do site para esse conteúdo mudar
@@ -20,6 +21,9 @@ export async function getStaticProps() {
   }
 }
 
+export default FAQScreen
+
+
 //Se o conteúdo do FAQ precisa estar sincronizado com o da api, é melhor usar o getServerSideProps
 //Ele roda a cada acesso recebido.
 /*
@@ -37,30 +41,30 @@ export async function getServerSideProps() {
 }
 */
 
-const FAQPage = ({faq}) => {
-  return (
-    <div>
-      <Head>
-        <title>FAQ - Alura Cases Campanha</title>
-      </Head>
-      <h1>Alura Cases - FAQ</h1>
-      <NextLink href="/">
-        Ir para o Home
-      </NextLink>
-      <ul>
-        {
-          faq.map(({answer, question}) => (
-            <li key={question}>
-              <article>
-                <h2>{question}</h2>
-                <p>{answer}</p>
-              </article>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  )
-}
+// const FAQPage = ({faq}) => {
+//   return (
+//     <div>
+//       <Head>
+//         <title>FAQ - Alura Cases Campanha</title>
+//       </Head>
+//       <h1>Alura Cases - FAQ</h1>
+//       <NextLink href="/">
+//         Ir para o Home
+//       </NextLink>
+//       <ul>
+//         {
+//           faq.map(({answer, question}) => (
+//             <li key={question}>
+//               <article>
+//                 <h2>{question}</h2>
+//                 <p>{answer}</p>
+//               </article>
+//             </li>
+//           ))
+//         }
+//       </ul>
+//     </div>
+//   )
+// }
 
-export default FAQPage
+// export default FAQPage
